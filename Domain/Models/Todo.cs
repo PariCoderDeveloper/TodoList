@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public record Todo
+    public class Todo
     {
         public int ID { get; set; }
         public string Title { get; set; }
         public bool IsCompleted { get; set; }
+        public DateOnly date { get; set; } = DateOnly.FromDateTime(DateTime.Now);
     }
 }

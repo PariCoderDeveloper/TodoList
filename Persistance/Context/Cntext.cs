@@ -11,10 +11,7 @@ namespace Persistance.Context
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        public DatabaseContext(DbContextOptions options):base(options) 
-        {
-            
-        }
+        public DatabaseContext(DbContextOptions options):base(options) {   }
         public DbSet<Todo> Todo { get; set; }
         public override int SaveChanges()
         {

@@ -1,3 +1,6 @@
+using Application.FacadPattern;
+using Application.Interfaces.Context;
+using Application.Interfaces.FacadInterface;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Context;
 
@@ -6,6 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite("Data Source = todo.db"));
+builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
+
+// Use Facad (Facad Injection)
+builder.Services.AddScoped<IFacadPattern, FacadPattern>();
+
 
 var app = builder.Build();
 

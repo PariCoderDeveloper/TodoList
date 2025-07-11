@@ -8,7 +8,7 @@ namespace Application.Services.Queries.GetAllItems
         public GetAllItems(IDatabaseContext context) { _context = context; }
         public List<GetAllItemsDto> GetAllItemService(int? idItems = 0)
         {
-            return _context.Todo.Where(item => idItems == 0 || item.ID == idItems)
+            var result = _context.Todo.Where(item => idItems == 0 || item.ID == idItems)
             .Select(item => new GetAllItemsDto
             {
                 ID = item.ID,
@@ -16,6 +16,7 @@ namespace Application.Services.Queries.GetAllItems
                 IsCompleted = item.IsCompleted,
                 date = item.date,
             }).ToList();
+            return result;
         }
     }
 }

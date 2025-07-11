@@ -8,7 +8,8 @@ namespace Domain.Models
 {
     public class Todo
     {
-        public int ID { get; set; }
+        
+        public long ID { get; set; }
         public string Title { get; set; }
         public bool IsCompleted { get; set; }
         public DateOnly date { get; set; } = DateOnly.FromDateTime(DateTime.Now);

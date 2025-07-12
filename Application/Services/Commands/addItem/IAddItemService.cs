@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services.Queries.GetAllItems
+namespace Application.Services.Commands.addItem
 {
-    public interface IGetAllItems
+    public interface IAddItemService
     {
-       public Task<IEnumerable<ItemDto>> ExecuteAsync();
+        Task<bool> Execute(ItemDto item);
     }
 }

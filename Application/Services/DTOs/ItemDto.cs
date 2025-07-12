@@ -1,6 +1,6 @@
-﻿namespace Application.Services.Queries.GetAllItems
+﻿namespace Application.Services.DTOs
 {
-    public record GetAllItemsDto
+    public record ItemDto
     {
         public long ID { get; set; }
         public string Title { get; set; }

@@ -1,22 +1,22 @@
-﻿using Application.Interfaces.Context;
+﻿using Application.Services.DTOs;
+using Domain.Interfaces;
 
 namespace Application.Services.Queries.GetAllItems
 {
     public class GetAllItems : IGetAllItems
     {
-        private readonly IDatabaseContext _context;
-        public GetAllItems(IDatabaseContext context) { _context = context; }
-        public List<GetAllItemsDto> GetAllItemService(int? idItems = 0)
+        private readonly ITodoListRepository _todorep;
+        public GetAllItems(ITodoListRepository todorep) => _todorep = todorep;
+        public async Task<IEnumerable<ItemDto>> ExecuteAsync()
         {
-            var result = _context.Todo.Where(item => idItems == 0 || item.ID == idItems)
-            .Select(item => new GetAllItemsDto
+            var result = await _todorep.GetAllItemsAsync();
+            return  result.Select(t => new ItemDto
             {
-                ID = item.ID,
-                Title = item.Title,
-                IsCompleted = item.IsCompleted,
-                date = item.date,
+                ID = t.ID,
+                Title = t.Title,
+                IsCompleted = t.IsCompleted,
+                date = t.date
             }).ToList();
-            return result;
         }
     }
 }

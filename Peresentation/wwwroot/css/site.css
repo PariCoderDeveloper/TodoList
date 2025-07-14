@@ -1,4 +1,194 @@
-﻿body {
+﻿/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+.menu-toggle {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+/* --- Add Form --- */
+.add-form {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+    .add-form input[type="text"],
+    .add-form input[type="date"] {
+        flex: 1 1 auto;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    .add-form button {
+        padding: 0.75rem 1rem;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+        .add-form button:hover {
+            background: #0056b3;
+        }
+
+/* --- Sections --- */
+.tasks-section {
+    margin-bottom: 2rem;
+}
+
+    .tasks-section h2 {
+        margin-bottom: 0.75rem;
+    }
+
+/* --- Task Table --- */
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+    .tasks-table th,
+    .tasks-table td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tasks-table th {
+        background-color: #f3f4f6;
+        font-weight: 600;
+    }
+
+    .tasks-table tr:hover {
+        background-color: #f9fafb;
+    }
+
+    /* --- Action Buttons --- */
+    .tasks-table button {
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+        border-radius: 6px;
+        margin-right: 0.3rem;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .tasks-table .btn-done {
+        background-color: #17c964;
+        color: white;
+    }
+
+        .tasks-table .btn-done:hover {
+            background-color: #0cab50;
+        }
+
+    .tasks-table .btn-edit {
+        background-color: #ffc107;
+        color: black;
+    }
+
+        .tasks-table .btn-edit:hover {
+            background-color: #e0a800;
+        }
+
+    .tasks-table .btn-delete {
+        background-color: #dc3545;
+        color: white;
+    }
+
+        .tasks-table .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+    /* --- Completed Row Style --- */
+    .tasks-table tr.completed td:first-child {
+        text-decoration: line-through;
+        color: #888;
+    }
+
+/* --- Drawer & Overlay --- */
+.past-tasks-drawer {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    padding: 1rem;
+    background: #fff;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    transition: right 0.3s ease;
+}
+
+    .past-tasks-drawer.open {
+        right: 0;
+    }
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 100;
+}
+
+    .overlay.show {
+        display: block;
+    }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .past-tasks-drawer {
+        border-radius: 0;
+    }
 }

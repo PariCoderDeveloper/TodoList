@@ -5,9 +5,43 @@
     Layout = "_Layout";
     ViewData["Title"] = "TodoList";
 }
+<div class="wrapper">
+    <div class="container">
+        <header>
+            <h1>📝 My Tasks</h1>
+            <button class="menu-toggle">&#9776;</button> <!-- ☰ -->
+        </header>
 
-<input type="text" name="name" value="" />
-<br />
-<input type="text" name="name" value="" />
-<br />
-<input type="checkbox" name="name" value="" />
+        <!-- فرم افزودن تسک -->
+        <form id="todo-form" class="add-form" >
+            <input type="text" id="todo-input" placeholder="Enter a new task..." required />
+            <input type="date" id="todo-date" required />
+            <button type="submit">➕ Add</button>
+        </form>
+
+        <!-- تسک‌های امروز -->
+        <section class="tasks-section">
+            <h2>Today's Tasks</h2>
+            <table class="tasks-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Tasks</th>
+                    </tr>
+                </thead>
+                <tbody id="today-tasks">
+                    <!-- ردیف‌های تسک امروز اینجا ایجاد می‌شن -->
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <!-- بخش کشویی برای تسک‌های گذشته -->
+    <aside class="past-tasks-drawer" id="drawer">
+        <h2>Past Tasks</h2>
+        <div id="past-tasks" class="tasks-list"></div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+</div>
+

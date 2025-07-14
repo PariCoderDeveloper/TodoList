@@ -1,6 +1,8 @@
 ﻿using Application.Interfaces.FacadInterface;
 using Application.Interfaces.UnitofWork;
 using Application.Services.Commands.addItem;
+using Application.Services.Commands.deleteItem;
+using Application.Services.Commands.EidtItem;
 using Application.Services.Queries.GetAllItems;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,22 @@ namespace Application.FacadPattern
             get
             {
                 return _addItemService = _addItemService ?? new AddItemService(_unitofWork.Todorepo);
+            }
+        }
+        private EditItemService _editItemService;
+        public EditItemService editItemService
+        {
+            get
+            {
+                return _editItemService = _editItemService ?? new EditItemService(_unitofWork.Todorepo);
+            }
+        }
+        private DeleteItemService _deleteItemService;
+        public DeleteItemService deleteItemService
+        {
+            get
+            {
+                return _deleteItemService = _deleteItemService ?? new DeleteItemService(_unitofWork.Todorepo);
             }
         }
     }

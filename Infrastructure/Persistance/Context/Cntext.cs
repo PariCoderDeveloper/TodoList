@@ -29,8 +29,6 @@ namespace Persistance.Context
             modelBuilder.Entity<Todo>().HasData(new Todo { ID = 3, Title = "خرید کتاب جدید", IsCompleted = false, date = new DateOnly(2025, 7, 10) });
             modelBuilder.Entity<Todo>().HasData(new Todo { ID = 4, Title = "نوشتن مقاله درباره‌ی Repository Pattern", IsCompleted = true, date = new DateOnly(2025, 7, 10) });
         }
-
         public async Task<int> CommitAsync() => await SaveChangesAsync();
-
     }
 }

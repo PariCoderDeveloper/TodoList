@@ -1,6 +1,7 @@
 using Application.FacadPattern;
 using Application.Interfaces.FacadInterface;
 using Application.Interfaces.UnitofWork;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Context;
 
@@ -13,6 +14,12 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite("Dat
 
 // Use Facad (Facad Injection)
 builder.Services.AddScoped<IFacadPattern, FacadPattern>();
+
+
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
+});
 
 
 var app = builder.Build();

@@ -22,7 +22,7 @@ namespace Application.Services.Commands.addItem
            {
                ID = item.ID,
                Title = item.Title,
-               IsCompleted = item.IsCompleted,
+               IsCompleted = false,
                date = item.date
            });
            if ( result == 0 ) return false;

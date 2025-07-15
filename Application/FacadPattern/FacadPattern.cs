@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces.FacadInterface;
 using Application.Interfaces.UnitofWork;
 using Application.Services.Commands.addItem;
+using Application.Services.Commands.Completed;
 using Application.Services.Commands.deleteItem;
 using Application.Services.Commands.EidtItem;
 using Application.Services.Queries.GetAllItems;
@@ -46,6 +47,15 @@ namespace Application.FacadPattern
             get
             {
                 return _deleteItemService = _deleteItemService ?? new DeleteItemService(_unitofWork.Todorepo);
+            }
+        }
+        private CompeletedService _compeletedService;
+
+        public CompeletedService CompeletedService
+        {
+            get
+            {
+                return _compeletedService = _compeletedService ?? new CompeletedService(_unitofWork.Todorepo);
             }
         }
     }

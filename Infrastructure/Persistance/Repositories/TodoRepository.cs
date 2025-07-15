@@ -22,6 +22,13 @@ namespace Infrastructure.Persistance.Repositories
             return await _context.CommitAsync();
         }
 
+        public async Task<int> CompletedAsync(long id)
+        {
+            var item = await _context.Todo.FindAsync(id);
+            if (item != null) item.IsCompleted = !item.IsCompleted;
+            return await _context.CommitAsync();
+        }
+
         public async Task<int> DeleteAsync(long id)
         {
             var item = await _context.Todo.FindAsync(id);

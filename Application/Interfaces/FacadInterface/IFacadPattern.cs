@@ -1,4 +1,5 @@
 ﻿using Application.Services.Commands.addItem;
+using Application.Services.Commands.Completed;
 using Application.Services.Commands.deleteItem;
 using Application.Services.Commands.EidtItem;
 using Application.Services.Queries.GetAllItems;
@@ -16,6 +17,7 @@ namespace Application.Interfaces.FacadInterface
         AddItemService addItemService { get; }
         EditItemService editItemService { get; }
         DeleteItemService deleteItemService { get; }
+        CompeletedService CompeletedService { get; }
         // Queries
         IGetAllItems getAllItems { get; }
     }

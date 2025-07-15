@@ -8,4 +8,9 @@
         public DateTime date { get; set; }
     }
 
+    public record CompeletedModel
+    {
+        public long ID { get; set; }
+        public bool isCmpeleted { get; set; }
+    }
 }

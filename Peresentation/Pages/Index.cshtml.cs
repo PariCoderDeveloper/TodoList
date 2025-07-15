@@ -32,6 +32,8 @@ namespace Peresentation.Pages
 
         }
 
+        [BindProperty]
+        public EditItemModel itemModel { get; set; }
         public async Task<JsonResult> OnPostEditAsync([FromBody] EditItemModel item)
         {
             var res = await _facad.editItemService.ExecuteAsync(new Application.Services.Commands.EidtItem.EditItemDto
@@ -48,5 +50,10 @@ namespace Peresentation.Pages
         {
             return new JsonResult(await _facad.deleteItemService.ExecuteAsync(id));
         }
+
+        public async Task<JsonResult> OnPostCompleted([FromBody] long id)
+        {
+            return new JsonResult(await _facad.CompeletedService.ExecuteAsync(id));
+        } 
     }
 }

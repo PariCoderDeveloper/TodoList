@@ -15,5 +15,6 @@ namespace Domain.Interfaces
         Task<int> AddAsync(Todo item);
         Task<int> UpdateAsync(Todo item);
         Task<int> DeleteAsync(long id);
+        Task<int> CompletedAsync(long id);
     }
 }

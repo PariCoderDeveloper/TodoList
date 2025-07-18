@@ -46,7 +46,7 @@ namespace Peresentation.Pages
             return new JsonResult(res);
         }
 
-        public async Task<JsonResult> OnPostDeleteAsync(long id)
+        public async Task<JsonResult> OnPostDeleteAsync([FromBody] long id)
         {
             return new JsonResult(await _facad.deleteItemService.ExecuteAsync(id));
         }

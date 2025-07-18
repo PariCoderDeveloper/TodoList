@@ -21,6 +21,12 @@ namespace Persistance.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             seedData(modelBuilder);
+            queryFilter(modelBuilder);
+        }
+
+        private void queryFilter(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Todo>().HasQueryFilter(item => !item.isRemoved);
         }
         private void seedData(ModelBuilder modelBuilder)
         {

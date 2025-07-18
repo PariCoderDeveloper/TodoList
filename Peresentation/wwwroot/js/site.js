@@ -121,8 +121,19 @@ document.getElementById("today-tasks").addEventListener("click", (e) => {
             })
             .catch(err => console.error(err));
     }
-});
-
-document.getElementById("today-tasks").addEventListener("click", (e) => {
-
+    if (e.target.classList.contains("delete")) {
+        fetch("/Index?handler=Delete", {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(e.target.dataset.id)
+        }).then(res => {
+            if (!res.ok) throw new Error(res.status)
+            return res.text()
+        }).then(item => {
+            console.log(item);
+            loadTask();
+        }).catch(err => console.error(err));
+    }
 });

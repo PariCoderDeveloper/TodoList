@@ -32,7 +32,7 @@ namespace Infrastructure.Persistance.Repositories
         public async Task<int> DeleteAsync(long id)
         {
             var item = await _context.Todo.FindAsync(id);
-            if (item != null) _context.Todo.Remove(item);
+            if (item != null) item.isRemoved = true;
             return await _context.CommitAsync();
         }
 
